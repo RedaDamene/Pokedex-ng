@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { GenerationsComponent } from './components/generations/generations.component';
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PokedexMainComponent } from './components/pokedex-main/pokedex-main.component';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
     GenerationsComponent,
     PokemonsComponent,
-    NavbarComponent
+    NavbarComponent,
+    PokedexMainComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

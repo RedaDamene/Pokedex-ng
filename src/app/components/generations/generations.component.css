@@ -1,0 +1,16 @@
+.container-gen {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.container-gen a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+}
+
+.container-gen a:hover {
+  background-color: red;
+}
+
