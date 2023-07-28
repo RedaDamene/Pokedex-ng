@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import {Type} from "../../model/Type";
+import {Component, Inject} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {JsonPokemon} from "../../model/jsonPokemon";
 import {Pokemon} from "../../model/Pokemon";
-import {Categorie} from "../../model/Categorie";
 
 @Component({
   selector: 'app-pokemons',
@@ -9,23 +10,19 @@ import {Categorie} from "../../model/Categorie";
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent {
-  public types:Type[];
-  public pokemons:Pokemon[];
-  public categories:Categorie[];
+  public pokemons$: Observable<Pokemon>;
+  // public tabObservable: Observable[];
 
-  constructor() {
-    this.types = [];
-    this.pokemons = [];
-    this.categories = [];
+  constructor(
+      @Inject(HttpClient)private http:HttpClient
+  ) {
+    this.pokemons$ = this.http.get<Pokemon>("http://pokeapi.co/api/v2/pokemon/1");
 
-    this.categories.push(
-      new Categorie("graine"),
-      new Categorie("lezard"),
-      new Categorie("flamme"),
-    )
 
-    this.pokemons.push(
-      new Pokemon("Bulbizarre", 0.7, 6.9, [new Type("plante"), new Type("poison")], new Categorie("graine")),
-    )
+
+    /*for (let i = 0; i < 999; i++) {
+      let item$ = this.http.get<JsonPokemon>("http://pokeapi.co/api/v2/pokemon");
+      this.tabObservable.push(item$);
+    }*/
   }
 }

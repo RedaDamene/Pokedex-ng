@@ -2,4 +2,6 @@
   width: 200px;
   height: 400px;
   background-color: blue;
+  padding: 20px;
+  border-radius: 10px;
 }

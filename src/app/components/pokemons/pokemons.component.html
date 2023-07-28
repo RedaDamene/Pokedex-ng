@@ -1,5 +1,6 @@
-<div class="pokemon" *ngFor="let pok of pokemons">
-  <img src="#" alt="Un pokemon">
-  <h3>Name : {{pok.nom}}</h3>
-  <p>Type : </p>
+<div *ngIf="pokemons$ | async as json" >
+    <p>{{json.name}}</p>
+    <p>{{json.height}}</p>
+    <p>{{json.weight}}</p>
+    <img src="{{json.sprites.front_default}}" alt="">
 </div>
